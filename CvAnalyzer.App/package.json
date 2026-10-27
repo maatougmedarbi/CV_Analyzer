@@ -1,0 +1,50 @@
+{
+  "name": "cvanalyzer-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev:vite": "vite",
+    "dev:electron": "concurrently \"npm run dev:vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "electron:build": "npm run build && electron-builder",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "pinia": "^2.3.1",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "concurrently": "^9.1.2",
+    "electron": "^36.4.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.2",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.cvanalyzer.app",
+    "productName": "CV Analyzer",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "extraResources": [
+      {
+        "from": "../CvAnalyzer.Api/bin/Release/net9.0/win-x64/publish/",
+        "to": "api",
+        "filter": ["**/*"]
+      }
+    ]
+  }
+}

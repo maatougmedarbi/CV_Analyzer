@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+bin/
+obj/
+
+# Build outputs
+dist/
+dist-ssr/
+dist-electron/
+release/
+build/
+out/
+
+# Environment and secrets
+*.local
+*.env
+*.env.*
+appsettings.Development.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDE & OS
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.DS_Store
+Thumbs.db
+
+# Database and docker artifacts
+*.db
+*.sqlite
